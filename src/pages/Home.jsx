@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Sparkles, Quote } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
@@ -139,9 +140,9 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-4 max-w-4xl mx-auto leading-relaxed"
+                            className="block text-accent-purple text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-4 max-w-7xl mx-auto leading-relaxed"
                         >
-                            Laboratory for Advanced Networks & Distributed Intelligent Systems
+                            Laboratory for Advanced Networks & <br /> Distributed Intelligent Systems
                         </motion.span>
                     </div>
 
@@ -175,7 +176,7 @@ const Home = () => {
                             </p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                 {['Network Science', 'Cloud Computing', 'Internet of Things', '5G/6G Networks'].map((item) => (
-                                    <div key={item} className="bg-accent-purple/10 p-4 rounded-lg text-center border border-accent-purple/20 text-foreground dark:text-white font-bold hover:bg-accent-purple/20 transition-colors">
+                                    <div key={item} className="bg-accent-purple/10 p-4 rounded-lg text-center border border-accent-purple/20 text-foreground dark:text-white font-bold">
                                         {item}
                                     </div>
                                 ))}

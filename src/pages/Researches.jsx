@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Network, Cloud, Wifi, Radio, Cpu, Smartphone } from 'lucide-react';
 import ns2Img from '/images/ns2.jpg';
@@ -46,6 +47,24 @@ const researches = [
 
 const Researches = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state?.topic) {
+            const topicName = location.state.topic;
+            // Handle mapping if names don't match exactly
+            // Home: "5G/6G Networks" -> Researches: "5G Mobile Networks"
+            const searchName = topicName === '5G/6G Networks' ? '5G Mobile Networks' : topicName;
+
+            const index = researches.findIndex(r => r.title === searchName);
+            if (index !== -1) {
+                setActiveIndex(index);
+                // Optional: clear state so it doesn't persist on refresh if desired, 
+                // but usually fine to leave it.
+                window.history.replaceState({}, document.title);
+            }
+        }
+    }, [location]);
 
     return (
         <div className="container mx-auto px-6 py-24">

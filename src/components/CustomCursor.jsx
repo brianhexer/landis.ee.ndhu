@@ -227,29 +227,23 @@ const CustomCursor = () => {
     }, [cursorX, cursorY, cursorSize, dpr]);
 
     return (
-        <>
-            {/* Mobile Touch Trace */}
-            <MobileTouchTrace />
-
-            {/* Desktop Cursor */}
-            <motion.div
-                animate={{
-                    scale: isHovering ? 1.4 : 1,
-                    opacity: isHovering ? 0.85 : 1,
-                }}
-                transition={{ type: 'spring', stiffness: 500, damping: 28 }}
-                style={{
-                    x: cursorXSpring,
-                    y: cursorYSpring,
-                    width: cursorSize,
-                    height: cursorSize,
-                    // Force GPU acceleration
-                    transform: 'translateZ(0)',
-                    backfaceVisibility: 'hidden',
-                }}
-                className="hidden md:block fixed top-0 left-0 bg-[#9372FF] rounded-full pointer-events-none z-[99999] mix-blend-difference shadow-[0_0_10px_rgba(147,114,255,0.9)] will-change-transform"
-            />
-        </>
+        <motion.div
+            animate={{
+                scale: isHovering ? 1.4 : 1,
+                opacity: isHovering ? 0.85 : 1,
+            }}
+            transition={{ type: 'spring', stiffness: 500, damping: 28 }}
+            style={{
+                x: cursorXSpring,
+                y: cursorYSpring,
+                width: cursorSize,
+                height: cursorSize,
+                // Force GPU acceleration
+                transform: 'translateZ(0)',
+                backfaceVisibility: 'hidden',
+            }}
+            className="hidden md:block fixed top-0 left-0 bg-[#9372FF] rounded-full pointer-events-none z-[99999] mix-blend-difference shadow-[0_0_10px_rgba(147,114,255,0.9)] will-change-transform"
+        />
     );
 };
 

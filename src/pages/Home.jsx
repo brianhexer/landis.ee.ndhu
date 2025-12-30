@@ -79,7 +79,7 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-16 sm:gap-20 md:gap-24 pb-16 sm:pb-20 md:pb-24 relative min-h-screen bg-transparent transition-colors duration-300">
+        <div className="flex flex-col gap-8 sm:gap-12 md:gap-16 pb-8 sm:pb-12 md:pb-16 relative min-h-screen bg-transparent transition-colors duration-300">
             {/* Cyberpunk AI Fixed Background - REPLACED BY GLOBAL BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none -z-10">
                 {/* Active Electric Arcs (Kept Local) */}
@@ -105,7 +105,7 @@ const Home = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden px-3 sm:px-4 md:px-6">
+            <section className="relative min-h-[60vh] sm:min-h-[65vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden px-3 sm:px-4 md:px-6">
                 <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -157,7 +157,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <div className="container mx-auto px-3 sm:px-4 md:px-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12 relative -mt-6 sm:-mt-10 md:-mt-20 z-20">
+            <div className="container mx-auto px-3 sm:px-4 md:px-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12 relative z-20">
 
                 {/* Main Content Area */}
                 <div className="lg:col-span-2 space-y-4 sm:space-y-6 md:space-y-8">

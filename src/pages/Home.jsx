@@ -104,8 +104,8 @@ const Home = () => {
                 />
             </div>
 
-            {/* Hero Section */}
-            <section className="relative min-h-[50vh] sm:min-h-[55vh] md:min-h-[70vh] flex items-center justify-center overflow-hidden px-3 sm:px-4 md:px-6 pt-16 sm:pt-20">
+            {/* Hero Section - Fits exactly on viewport */}
+            <section className="relative h-[calc(100vh-64px)] sm:h-[calc(100vh-72px)] flex items-center justify-center overflow-hidden px-3 sm:px-4 md:px-6">
                 <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}

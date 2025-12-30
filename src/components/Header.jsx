@@ -40,6 +40,18 @@ const Header = () => {
         setIsOpen(false);
     }, [location.pathname]);
 
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
+
     return (
         <>
         <header
@@ -104,10 +116,10 @@ const Header = () => {
                 </nav>
 
                 {/* Mobile Menu Actions */}
-                <div className="lg:hidden flex items-center gap-3 z-[110]">
+                <div className="lg:hidden flex items-center gap-3 z-[10000] relative">
                     <ThemeToggle />
                     <button
-                        className="text-foreground p-2 hover:text-accent-purple transition-colors touch-manipulation active:scale-95"
+                        className="text-foreground p-2 hover:text-accent-purple transition-colors touch-manipulation active:scale-95 relative z-[10001]"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label="Toggle menu"
                     >
@@ -123,7 +135,8 @@ const Header = () => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: '100%' }}
                             transition={{ type: 'tween', duration: 0.3 }}
-                            className="fixed inset-0 bg-[#0a0b0d] flex flex-col items-center justify-center gap-6 lg:hidden z-[100] pt-20 pb-10 px-6"
+                            className="fixed inset-0 bg-[#0a0b0d] flex flex-col items-center justify-center gap-6 lg:hidden z-[9999] overflow-hidden"
+                            style={{ touchAction: 'none' }}
                         >
                             {navItems.map((item, index) => (
                                 <motion.div

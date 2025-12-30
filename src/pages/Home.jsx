@@ -117,7 +117,7 @@ const Home = () => {
                         <span className="text-sm text-accent-purple uppercase tracking-widest">Research Lab</span>
                     </motion.div>
 
-                    <div className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight uppercase min-h-[100px] sm:min-h-[120px] md:min-h-[180px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
+                    <div className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight uppercase min-h-[140px] sm:min-h-[160px] md:min-h-[200px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
                         <Typewriter
                             options={{
                                 autoStart: true,
@@ -140,7 +140,7 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-4 max-w-7xl mx-auto leading-relaxed"
+                            className="block text-accent-purple text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-2 max-w-7xl mx-auto leading-relaxed"
                         >
                             Laboratory for Advanced Networks & <br /> Distributed Intelligent Systems
                         </motion.span>
@@ -208,7 +208,7 @@ const Home = () => {
                         <h2 className="text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-8">Lab News</h2>
                         <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
                             <div className="group relative pl-8 pb-8 border-l-2 border-border dark:border-white/10 last:border-0 last:pb-0">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-purple border-4 border-background group-hover:scale-125 transition-transform" />
+                                <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-purple border-2 border-background shadow-[0_0_8px_rgba(147,114,255,0.8)] group-hover:scale-125 transition-transform" />
                                 <span className="text-sm text-accent-purple font-mono mb-2 block">November 21th, 2014</span>
                                 <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent-purple transition-colors">2015 Spring Information Theory Workshop</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -220,7 +220,7 @@ const Home = () => {
                             </div>
 
                             <div className="group relative pl-8 pb-8 border-l-2 border-border dark:border-white/10 last:border-0 last:pb-0">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-purple border-4 border-background group-hover:scale-125 transition-transform" />
+                                <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-purple border-2 border-background shadow-[0_0_8px_rgba(147,114,255,0.8)] group-hover:scale-125 transition-transform" />
                                 <span className="text-sm text-accent-purple font-mono mb-2 block">June 10th, 2014</span>
                                 <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent-purple transition-colors">Recruitment: I WANT YOU</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -229,7 +229,7 @@ const Home = () => {
                             </div>
 
                             <div className="group relative pl-8 pb-8 border-l-2 border-border dark:border-white/10 last:border-0 last:pb-0">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-purple border-4 border-background group-hover:scale-125 transition-transform" />
+                                <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-purple border-2 border-background shadow-[0_0_8px_rgba(147,114,255,0.8)] group-hover:scale-125 transition-transform" />
                                 <span className="text-sm text-accent-purple font-mono mb-2 block">September 26th, 2013</span>
                                 <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent-purple transition-colors">Big Data Systems Course</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -238,7 +238,7 @@ const Home = () => {
                             </div>
 
                             <div className="group relative pl-8 pb-8 border-l-2 border-border dark:border-white/10 last:border-0 last:pb-0">
-                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent-purple border-4 border-background group-hover:scale-125 transition-transform" />
+                                <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-purple border-2 border-background shadow-[0_0_8px_rgba(147,114,255,0.8)] group-hover:scale-125 transition-transform" />
                                 <span className="text-sm text-accent-purple font-mono mb-2 block">July 7th, 2013</span>
                                 <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-accent-purple transition-colors">Industry-Academia Cooperation</h3>
                                 <p className="text-muted-foreground text-sm leading-relaxed">

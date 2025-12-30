@@ -56,7 +56,7 @@ const Header = () => {
         <>
             <header
                 className={cn(
-                    'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+                    'fixed top-0 left-0 right-0 z-[10000] transition-all duration-300',
                     scrolled
                         ? 'bg-[#0a0b0d]/95 backdrop-blur-md py-1.5 md:py-2 border-b border-[#ffffff1f] shadow-lg'
                         : 'bg-transparent backdrop-blur-none py-2 md:py-3'
@@ -74,7 +74,7 @@ const Header = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -10 }}
                                     transition={{ duration: 0.2 }}
-                                    className="h-10 md:h-14 w-auto object-contain"
+                                    className="h-12 md:h-14 w-auto object-contain"
                                     style={{ filter: "drop-shadow(0 0 2px #9372FF) drop-shadow(0 0 5px rgba(147,114,255,0.5))" }}
                                 />
                             ) : (

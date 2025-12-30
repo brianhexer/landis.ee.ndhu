@@ -104,7 +104,7 @@ const Home = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+            <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden px-4">
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -116,7 +116,7 @@ const Home = () => {
                         <span className="text-sm text-accent-purple uppercase tracking-widest">Research Lab</span>
                     </motion.div>
 
-                    <div className={`text-6xl md:text-8xl font-bold mb-6 leading-tight uppercase min-h-[160px] md:min-h-[200px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
+                    <div className={`text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight uppercase min-h-[100px] sm:min-h-[120px] md:min-h-[180px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
                         <Typewriter
                             options={{
                                 autoStart: true,
@@ -139,9 +139,9 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-3xl md:text-5xl mt-4 font-light tracking-wide"
+                            className="block text-accent-purple text-lg sm:text-xl md:text-3xl lg:text-5xl mt-4 font-light tracking-wide px-4"
                         >
-                            Laboratory for Advanced Networks & <br /> Distributed Intelligent Systems
+                            Laboratory for Advanced Networks & Distributed Intelligent Systems
                         </motion.span>
                     </div>
 
@@ -149,14 +149,14 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
+                        className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto px-4"
                     >
                         National Dong Hwa University (NDHU), Taiwan, R.O.C.
                     </motion.p>
                 </div>
             </section>
 
-            <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-12 relative -mt-20 z-20">
+            <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 relative -mt-10 md:-mt-20 z-20">
 
                 {/* Main Content Area */}
                 <div className="lg:col-span-2 space-y-8">
@@ -166,14 +166,14 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-6 md:p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                     >
-                        <h2 className="text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-6">Welcome to LANDIS</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-6">Welcome to LANDIS</h2>
                         <div className="prose prose-invert max-w-none">
-                            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                                 Welcome to the Laboratory for Advanced Networks and Distributed Intelligent Systems (LANDIS). We are pioneering research in:
                             </p>
-                            <div className="grid grid-cols-2 gap-4 mb-8">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                                 {['Network Science', 'Cloud Computing', 'Internet of Things', '5G/6G Networks'].map((item) => (
                                     <div key={item} className="bg-accent-purple/10 p-4 rounded-lg text-center border border-accent-purple/20 text-foreground dark:text-white font-bold hover:bg-accent-purple/20 transition-colors">
                                         {item}

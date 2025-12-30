@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import advisorImg from '/images/advisor.jpg';
 
 const Advisor = () => {
     return (
@@ -15,7 +16,7 @@ const Advisor = () => {
                 <div className="w-48 h-48 mx-auto mb-8 relative">
                     <div className="absolute inset-0 bg-accent-purple/20 rounded-full blur-xl"></div>
                     <img
-                        src="/images/advisor.jpg"
+                        src={advisorImg}
                         alt="Prof. Jen-Yeu Chen"
                         className="w-full h-full object-cover rounded-full border-4 border-accent-purple relative z-10 shadow-[0_0_20px_rgba(147,114,255,0.4)]"
                     />

@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
+import members1 from '/images/members1.jpg';
+import members2 from '/images/members2.jpg';
+import members3 from '/images/members3.jpg';
+import members4 from '/images/members4.jpg';
+import members5 from '/images/members5.jpg';
+import members6 from '/images/members6.jpg';
 
 const Members = () => {
     const phds = [
@@ -61,12 +67,12 @@ const Members = () => {
                 <h2 className="text-3xl font-bold text-accent-purple mb-12 border-b border-border dark:border-gray-800 pb-4">Lab Life</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
-                        { src: "/images/members3.jpg", caption: "River trekking in Mukumugi, 2013", span: "md:col-span-2 md:row-span-2" },
-                        { src: "/images/members1.jpg", caption: "LANDIS Lab, 2012", span: "" },
-                        { src: "/images/members2.jpg", caption: "Farglory Hotel, 2012", span: "" },
-                        { src: "/images/members5.jpg", caption: "Moonhouse, 2014", span: "" },
-                        { src: "/images/members6.jpg", caption: "LANDIS Lab, 2014", span: "md:col-span-2" },
-                        { src: "/images/members4.jpg", caption: "Mukumugi, 2013", span: "" }
+                        { src: members3, caption: "River trekking in Mukumugi, 2013", span: "md:col-span-2 md:row-span-2" },
+                        { src: members1, caption: "LANDIS Lab, 2012", span: "" },
+                        { src: members2, caption: "Farglory Hotel, 2012", span: "" },
+                        { src: members5, caption: "Moonhouse, 2014", span: "" },
+                        { src: members6, caption: "LANDIS Lab, 2014", span: "md:col-span-2" },
+                        { src: members4, caption: "Mukumugi, 2013", span: "" }
                     ].map((img, i) => (
                         <Tilt key={i} options={defaultTiltOptions} className={`relative group rounded-2xl overflow-hidden shadow-2xl ${img.span}`}>
                             <motion.div

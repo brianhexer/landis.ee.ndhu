@@ -3,6 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 import { Github, Code2, Palette, Terminal, Cpu, Globe, ArrowUpRight, Sparkles } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaFacebook, FaYoutube, FaDiscord, FaWhatsapp, FaXTwitter, FaLine, FaThreads } from 'react-icons/fa6';
+import brianImg from '/brian.jpg';
 
 const SocialButton = ({ icon, label, href, color }) => (
     <motion.a
@@ -119,7 +120,7 @@ const SiteDeveloper = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
                                     <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-white/10 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-transparent group-hover:ring-cyan-500/30 transition-all duration-500">
-                                        <img src="/brian.jpg" alt="Brian Hexer" className="w-full h-full object-cover" />
+                                        <img src={brianImg} alt="Brian Hexer" className="w-full h-full object-cover" />
                                     </div>
 
                                 </motion.div>

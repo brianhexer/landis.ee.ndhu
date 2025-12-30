@@ -140,7 +140,7 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light tracking-wide px-1 max-w-7xl mx-auto leading-snug sm:leading-relaxed"
+                            className="block text-accent-purple text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-medium tracking-wide px-1 max-w-7xl mx-auto leading-snug sm:leading-relaxed"
                         >
                             Laboratory for Advanced Networks & <br /> Distributed Intelligent Systems
                         </motion.span>
@@ -152,6 +152,7 @@ const Home = () => {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-2 sm:px-4"
                     >
+                        Department of Electrical Engineering <br />
                         National Dong Hwa University (NDHU), Taiwan, R.O.C.
                     </motion.p>
                 </div>

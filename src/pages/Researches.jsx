@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, Network, Cloud, Wifi, Radio, Cpu, Smartphone } from 'lucide-react';
+import ns2Img from '/images/ns2.jpg';
+import iot2Img from '/images/iot2.jpg';
+import fiveG2Img from '/images/5g2.jpg';
 
 const researches = [
     {
         title: 'Network Science',
         icon: <Network className="w-6 h-6" />,
         description: `Network science is an interdisciplinary academic field which studies complex networks such as telecommunication networks, computer networks, biological networks, cognitive and semantic networks, and social networks. The field draws on theories and methods including graph theory from mathematics, statistical mechanics from physics, data mining and information visualization from computer science.`,
-        image: '/images/ns2.jpg'
+        image: ns2Img
     },
     {
         title: 'Internet of Things (IoT)',
         icon: <Wifi className="w-6 h-6" />,
         description: `The Internet of Things (IoT) refers to uniquely identifiable objects and their virtual representations in an Internet-like structure. Radio-frequency identification (RFID) was seen as a prerequisite for the Internet of Things in the early days. If all objects and people in daily life were equipped with identifiers, they could be managed and inventoried by computers.`,
-        image: '/images/iot2.jpg'
+        image: iot2Img
     },
     {
         title: '5G Mobile Networks',
         icon: <Radio className="w-6 h-6" />,
         description: `5G (5th generation mobile networks) denotes the next major phase of mobile telecommunications standards beyond the current 4G/IMT-Advanced standards. It aims to provide higher data rates, reduced latency, energy saving, cost reduction, higher system capacity, and massive device connectivity.`,
-        image: '/images/5g2.jpg'
+        image: fiveG2Img
     },
     {
         title: 'Distributed Information Processing',

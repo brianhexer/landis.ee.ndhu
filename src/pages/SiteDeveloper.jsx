@@ -98,7 +98,7 @@ const SiteDeveloper = () => {
     const techStack = ['React', 'Vite', 'Node.js', 'Tailwind CSS', 'Framer Motion', 'Three.js', 'Firebase', 'PostgreSQL', 'Python', 'UI/UX Design'];
 
     return (
-        <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
+        <div className="min-h-screen pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 relative overflow-hidden">
             <div className="container mx-auto max-w-5xl relative z-10">
                 {/* Hero Card */}
                 <TiltCard>
@@ -106,20 +106,20 @@ const SiteDeveloper = () => {
                         initial={{ opacity: 0, y: 50, rotateX: 20 }}
                         animate={{ opacity: 1, y: 0, rotateX: 0 }}
                         transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                        className="p-1 rounded-[30px] bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-transparent mb-16 shadow-2xl shadow-cyan-900/20"
+                        className="p-1 rounded-[20px] sm:rounded-[30px] bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-transparent mb-10 sm:mb-12 md:mb-16 shadow-2xl shadow-cyan-900/20"
                     >
-                        <div className="bg-black/60 backdrop-blur-2xl border border-white/10 rounded-[28px] p-8 md:p-14 overflow-hidden relative group">
+                        <div className="bg-black/60 backdrop-blur-2xl border border-white/10 rounded-[18px] sm:rounded-[28px] p-4 sm:p-8 md:p-14 overflow-hidden relative group">
                             {/* Shine Effect */}
                             <div className="absolute top-0 right-0 w-[200%] h-full bg-gradient-to-l from-transparent via-white/5 to-transparent skew-x-12 translate-x-full group-hover:translate-x-[-200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
 
-                            <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 transform transition-transform" style={{ transformStyle: "preserve-3d" }}>
+                            <div className="flex flex-col items-center gap-6 sm:gap-8 md:flex-row md:gap-16 transform transition-transform" style={{ transformStyle: "preserve-3d" }}>
                                 {/* Avatar / Visual */}
                                 <motion.div
                                     style={{ transformStyle: "preserve-3d", transform: "translateZ(50px)" }}
                                     className="relative"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-                                    <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-white/10 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-transparent group-hover:ring-cyan-500/30 transition-all duration-500">
+                                    <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border-2 border-white/10 flex items-center justify-center shadow-2xl overflow-hidden ring-4 ring-transparent group-hover:ring-cyan-500/30 transition-all duration-500">
                                         <img src={brianImg} alt="Brian Hexer" className="w-full h-full object-cover" />
                                     </div>
 
@@ -133,12 +133,12 @@ const SiteDeveloper = () => {
                                         transition={{ delay: 0.2 }}
                                         className="mb-2"
                                     >
-                                        <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
-                                            <Sparkles className="w-4 h-4 text-yellow-400" />
-                                            <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">The Creator</h2>
+                                        <div className="flex items-center justify-center md:justify-start gap-2 mb-2 sm:mb-3">
+                                            <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400" />
+                                            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.25em] text-cyan-400">The Creator</h2>
                                         </div>
 
-                                        <div className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-white h-[80px] md:h-[96px] flex items-center justify-center md:justify-start">
+                                        <div className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-4 sm:mb-6 tracking-tight text-white h-[50px] sm:h-[60px] md:h-[80px] lg:h-[96px] flex items-center justify-center md:justify-start">
                                             <Typewriter
                                                 options={{
                                                     strings: ['Brian Hexer', 'Deepan P', '李忠碩', 'Lǐ Zhōng Shuò'],
@@ -152,8 +152,8 @@ const SiteDeveloper = () => {
                                         </div>
                                     </motion.div>
 
-                                    <div className="text-xl md:text-2xl font-medium text-muted-foreground h-12 mb-6 flex items-center justify-center md:justify-start gap-2">
-                                        <span className="text-purple-400 text-2xl">_ ></span>
+                                    <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground h-10 sm:h-12 mb-4 sm:mb-6 flex items-center justify-center md:justify-start gap-2">
+                                        <span className="text-purple-400 text-lg sm:text-xl md:text-2xl">_ ></span>
                                         <Typewriter
                                             options={{
                                                 strings: [
@@ -170,7 +170,7 @@ const SiteDeveloper = () => {
                                         />
                                     </div>
 
-                                    <p className="text-foreground/80 leading-relaxed max-w-lg mx-auto md:mx-0 text-lg font-light">
+                                    <p className="text-foreground/80 leading-relaxed max-w-lg mx-auto md:mx-0 text-sm sm:text-base md:text-lg font-light">
                                         Crafting <span className="text-cyan-400 font-medium">immersive</span> digital experiences where design meets functionality. Passionate about building the <span className="text-purple-400 font-medium">web of tomorrow</span>.
                                     </p>
                                 </div>
@@ -184,13 +184,13 @@ const SiteDeveloper = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="mb-20 text-center"
+                    className="mb-12 sm:mb-16 md:mb-20 text-center"
                 >
-                    <h3 className="text-3xl font-bold mb-10 flex items-center justify-center gap-3">
-                        <Terminal className="w-8 h-8 text-cyan-400" />
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-10 flex items-center justify-center gap-2 sm:gap-3">
+                        <Terminal className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-cyan-400" />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">Technologies & Tools</span>
                     </h3>
-                    <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto perspective-1000">
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 max-w-4xl mx-auto perspective-1000">
                         {techStack.map((tech, index) => (
                             <TechItem key={index} label={tech} index={index} />
                         ))}
@@ -203,12 +203,12 @@ const SiteDeveloper = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
                 >
-                    <h3 className="text-3xl font-bold mb-10 text-center flex items-center justify-center gap-3">
-                        <Globe className="w-8 h-8 text-purple-500" />
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 md:mb-10 text-center flex items-center justify-center gap-2 sm:gap-3">
+                        <Globe className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-purple-500" />
                         <span>Connect Everywhere</span>
                     </h3>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3 md:gap-5">
                         {socials.map((social, index) => (
                             <SocialButton key={index} {...social} />
                         ))}
@@ -220,10 +220,10 @@ const SiteDeveloper = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="mt-24 text-center pb-10"
+                    className="mt-12 sm:mt-16 md:mt-24 text-center pb-6 sm:pb-8 md:pb-10"
                 >
-                    <div className="inline-block p-1 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent w-48 mb-6" />
-                    <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+                    <div className="inline-block p-1 rounded-full bg-gradient-to-r from-transparent via-white/10 to-transparent w-32 sm:w-40 md:w-48 mb-4 sm:mb-6" />
+                    <p className="text-xs sm:text-sm text-muted-foreground flex items-center justify-center gap-2">
                         Designed & Built with <span className="text-red-500 animate-bounce inline-block">❤</span> by Brian Hexer
                     </p>
                 </motion.div>

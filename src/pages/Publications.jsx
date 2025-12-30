@@ -186,31 +186,31 @@ const Publications = () => {
     ];
 
     return (
-        <div className="container mx-auto px-6 py-24">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 py-16 sm:py-20 md:py-24">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl font-bold uppercase mb-12 text-center text-foreground dark:text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-8 sm:mb-10 md:mb-12 text-center text-foreground dark:text-white"
             >
                 Publications
             </motion.h1>
 
-            <div className="max-w-4xl mx-auto space-y-24">
+            <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16 md:space-y-24">
 
                 <section>
-                    <h2 className="text-3xl font-bold text-accent-purple mb-8 border-b border-border dark:border-gray-800 pb-4">Journal Papers</h2>
-                    <div className="space-y-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Journal Papers</h2>
+                    <div className="space-y-3 sm:space-y-4">
                         {journalPapers.map((paper, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <div className="flex gap-4">
-                                    <span className="text-accent-purple font-mono opacity-50 select-none">#{i + 1}</span>
-                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <span className="text-accent-purple font-mono opacity-50 select-none text-xs sm:text-sm">#{i + 1}</span>
+                                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
                                         {paper.content}
                                     </p>
                                 </div>
@@ -220,19 +220,19 @@ const Publications = () => {
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-accent-purple mb-8 border-b border-border dark:border-gray-800 pb-4">Conference Papers</h2>
-                    <div className="space-y-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Conference Papers</h2>
+                    <div className="space-y-3 sm:space-y-4">
                         {conferencePapers.map((paper, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <div className="flex gap-4">
-                                    <span className="text-accent-purple font-mono opacity-50 select-none">#{i + 1}</span>
-                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <span className="text-accent-purple font-mono opacity-50 select-none text-xs sm:text-sm">#{i + 1}</span>
+                                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
                                         {paper.content}
                                     </p>
                                 </div>
@@ -242,19 +242,19 @@ const Publications = () => {
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-accent-purple mb-8 border-b border-border dark:border-gray-800 pb-4">Technical Reports</h2>
-                    <div className="space-y-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Technical Reports</h2>
+                    <div className="space-y-3 sm:space-y-4">
                         {technicalReports.map((paper, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <div className="flex gap-4">
-                                    <span className="text-accent-purple font-mono opacity-50 select-none">#{i + 1}</span>
-                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <span className="text-accent-purple font-mono opacity-50 select-none text-xs sm:text-sm">#{i + 1}</span>
+                                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
                                         {paper.content}
                                     </p>
                                 </div>
@@ -264,19 +264,19 @@ const Publications = () => {
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-accent-purple mb-8 border-b border-border dark:border-gray-800 pb-4">Patents</h2>
-                    <div className="space-y-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Patents</h2>
+                    <div className="space-y-3 sm:space-y-4">
                         {patents.map((paper, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <div className="flex gap-4">
-                                    <span className="text-accent-purple font-mono opacity-50 select-none">#{i + 1}</span>
-                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <span className="text-accent-purple font-mono opacity-50 select-none text-xs sm:text-sm">#{i + 1}</span>
+                                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
                                         {paper.content}
                                     </p>
                                 </div>
@@ -286,19 +286,19 @@ const Publications = () => {
                 </section>
 
                 <section>
-                    <h2 className="text-3xl font-bold text-accent-purple mb-8 border-b border-border dark:border-gray-800 pb-4">Invited Talks</h2>
-                    <div className="space-y-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Invited Talks</h2>
+                    <div className="space-y-3 sm:space-y-4">
                         {talks.map((paper, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 10 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <div className="flex gap-4">
-                                    <span className="text-accent-purple font-mono opacity-50 select-none">#{i + 1}</span>
-                                    <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                                <div className="flex gap-2 sm:gap-3 md:gap-4">
+                                    <span className="text-accent-purple font-mono opacity-50 select-none text-xs sm:text-sm">#{i + 1}</span>
+                                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base">
                                         {paper.content}
                                     </p>
                                 </div>

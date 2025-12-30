@@ -67,41 +67,41 @@ const Researches = () => {
     }, [location]);
 
     return (
-        <div className="container mx-auto px-6 py-24">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 py-16 sm:py-20 md:py-24">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl font-bold uppercase mb-16 text-center text-foreground dark:text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-8 sm:mb-12 md:mb-16 text-center text-foreground dark:text-white"
             >
                 Researches
             </motion.h1>
 
-            <div className="max-w-5xl mx-auto space-y-4">
+            <div className="max-w-5xl mx-auto space-y-3 sm:space-y-4">
                 {researches.map((item, index) => (
                     <motion.div
                         key={item.title}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className={`rounded-2xl overflow-hidden border transition-all duration-500 ${activeIndex === index
+                        className={`rounded-xl sm:rounded-2xl overflow-hidden border transition-all duration-500 ${activeIndex === index
                             ? 'bg-accent-purple/10 border-accent-purple shadow-[0_0_25px_rgba(147,114,255,0.3)]'
                             : 'bg-card/40 dark:bg-card border-accent-purple/50 hover:bg-black/5 dark:hover:bg-white/5 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)]'
                             }`}
                     >
                         <div
-                            className="flex justify-between items-center cursor-pointer p-6 md:p-8"
+                            className="flex justify-between items-center cursor-pointer p-4 sm:p-6 md:p-8"
                             onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                         >
-                            <div className="flex items-center gap-4">
-                                <div className={`p-2 rounded-lg ${activeIndex === index ? 'bg-accent-purple text-white' : 'bg-black/5 dark:bg-white/5 text-muted-foreground'}`}>
+                            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+                                <div className={`p-1.5 sm:p-2 rounded-lg ${activeIndex === index ? 'bg-accent-purple text-white' : 'bg-black/5 dark:bg-white/5 text-muted-foreground'}`}>
                                     {item.icon}
                                 </div>
-                                <h3 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-accent-purple dark:text-white' : 'text-muted-foreground'}`}>
+                                <h3 className={`text-sm sm:text-lg md:text-xl lg:text-2xl font-bold transition-colors duration-300 ${activeIndex === index ? 'text-accent-purple dark:text-white' : 'text-muted-foreground'}`}>
                                     {item.title}
                                 </h3>
                             </div>
                             <div className={`transition-colors duration-300 ${activeIndex === index ? 'text-accent-purple' : 'text-muted-foreground'}`}>
-                                {activeIndex === index ? <Minus size={24} /> : <Plus size={24} />}
+                                {activeIndex === index ? <Minus size={20} className="sm:w-6 sm:h-6" /> : <Plus size={20} className="sm:w-6 sm:h-6" />}
                             </div>
                         </div>
                         <AnimatePresence>
@@ -112,13 +112,13 @@ const Researches = () => {
                                     exit={{ opacity: 0, height: 0 }}
                                     className="overflow-hidden"
                                 >
-                                    <div className="px-6 pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/50 dark:border-white/5 mt-2">
-                                        <div className="flex flex-col md:flex-row gap-8 items-start pt-6">
+                                    <div className="px-4 pb-4 sm:px-6 sm:pb-6 md:px-8 md:pb-8 pt-0 border-t border-border/50 dark:border-white/5 mt-2">
+                                        <div className="flex flex-col gap-4 sm:gap-6 md:gap-8 md:flex-row items-start pt-4 sm:pt-6">
                                             {item.image && (
-                                                <img src={item.image} alt={item.title} className="w-full md:w-1/3 rounded-xl border border-border/50 dark:border-white/10 shadow-lg object-cover" />
+                                                <img src={item.image} alt={item.title} className="w-full md:w-1/3 rounded-lg sm:rounded-xl border border-border/50 dark:border-white/10 shadow-lg object-cover" />
                                             )}
                                             <div className="flex-1">
-                                                <p className="text-lg text-muted-foreground leading-relaxed">
+                                                <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -132,9 +132,9 @@ const Researches = () => {
             </div>
 
             {/* Related Research Links */}
-            <div className="max-w-5xl mx-auto mt-32">
-                <h2 className="text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-12">Related Links</h2>
-                <div className="grid md:grid-cols-3 gap-6">
+            <div className="max-w-5xl mx-auto mt-16 sm:mt-24 md:mt-32">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-3 sm:pb-4 mb-6 sm:mb-8 md:mb-12">Related Links</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                     {[
                         { title: "Autonomous Networks Research Group", sub: "USC", url: "http://anrg.usc.edu/www/" },
                         { title: "Wireless Sensor Network Center", sub: "NTU", url: "http://www.wsnc.ntu.edu.tw/" },
@@ -151,13 +151,13 @@ const Researches = () => {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group block p-6 bg-card/40 dark:bg-card border border-accent-purple/50 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 relative overflow-hidden shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                            className="group block p-4 sm:p-5 md:p-6 bg-card/40 dark:bg-card border border-accent-purple/50 rounded-xl sm:rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 relative overflow-hidden shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                         >
-                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                <Network size={40} className="text-foreground dark:text-white" />
+                            <div className="absolute top-0 right-0 p-2 sm:p-3 md:p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <Network size={30} className="text-foreground dark:text-white sm:w-[35px] sm:h-[35px] md:w-[40px] md:h-[40px]" />
                             </div>
-                            <span className="text-xs font-bold text-accent-purple uppercase tracking-wider mb-2 block">{link.sub}</span>
-                            <h3 className="font-bold text-foreground dark:text-white group-hover:text-accent-purple transition-colors">{link.title}</h3>
+                            <span className="text-[10px] sm:text-xs font-bold text-accent-purple uppercase tracking-wider mb-1 sm:mb-2 block">{link.sub}</span>
+                            <h3 className="font-bold text-xs sm:text-sm md:text-base text-foreground dark:text-white group-hover:text-accent-purple transition-colors leading-tight">{link.title}</h3>
                         </a>
                     ))}
                 </div>

@@ -15,9 +15,18 @@ const InteractivePixelGrid = () => {
         // Static texture noise (calculated once)
         let gridMap = [];
 
+        const getGridSize = () => {
+            // Responsive grid size: smaller spacing on mobile for denser grid
+            const width = window.innerWidth;
+            if (width < 480) return 10; // Very small screens - dense grid
+            if (width < 768) return 12; // Mobile - dense grid
+            if (width < 1024) return 14; // Tablet
+            return 15; // Desktop - original grid
+        };
+
         const initGrid = () => {
             gridMap = [];
-            const gridSize = 15;
+            const gridSize = getGridSize();
             const cols = Math.ceil(window.innerWidth / gridSize);
             const rows = Math.ceil(window.innerHeight / gridSize);
 
@@ -27,6 +36,7 @@ const InteractivePixelGrid = () => {
                     gridMap.push({
                         x: i * gridSize,
                         y: j * gridSize,
+                        gridSize: gridSize, // Store for later use
                         // Subtle visibility: 3-8% base
                         baseOpacity: Math.random() * 0.05 + 0.03,
                         isAccent: Math.random() > 0.8, // 20% chance to be accent
@@ -61,10 +71,6 @@ const InteractivePixelGrid = () => {
             const colorActive = [147, 114, 255]; // Purple brand
             const colorAccent = [0, 0, 0]; // Black sparkle
 
-            const gridSize = 15;
-            const size = gridSize * 0.35; // Pixel size
-            const offset = (gridSize - size) / 2;
-
             const time = Date.now() / 1000;
 
             gridMap.forEach(dot => {
@@ -72,8 +78,8 @@ const InteractivePixelGrid = () => {
                 const dy = mouseRef.current.y - dot.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
-                // Interaction Radius
-                const radius = 180;
+                // Interaction Radius - scale with screen size
+                const radius = window.innerWidth < 768 ? 120 : 180;
                 let activeFactor = 0;
 
                 if (dist < radius) {
@@ -105,6 +111,12 @@ const InteractivePixelGrid = () => {
                 } else {
                     [r, g, b] = colorBase;
                 }
+
+                // Use the dot's stored gridSize for responsive sizing
+                // Smaller multiplier on mobile for smaller dots
+                const sizeMultiplier = window.innerWidth < 768 ? 0.25 : 0.35;
+                const size = dot.gridSize * sizeMultiplier;
+                const offset = (dot.gridSize - size) / 2;
 
                 ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${renderOpacity})`;
                 ctx.fillRect(dot.x + offset, dot.y + offset, size, size);

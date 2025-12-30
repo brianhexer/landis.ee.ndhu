@@ -29,20 +29,20 @@ const Courses = () => {
     ];
 
     return (
-        <div className="container mx-auto px-6 py-24">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 py-16 sm:py-20 md:py-24">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl font-bold uppercase mb-16 text-center text-foreground dark:text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-8 sm:mb-12 md:mb-16 text-center text-foreground dark:text-white"
             >
                 Courses
             </motion.h1>
 
             <div className="max-w-4xl mx-auto relative">
                 {/* Vertical Timeline Line */}
-                <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-accent-purple/50 to-transparent transform -translate-x-1/2 ml-6 md:ml-0" />
+                <div className="absolute left-4 sm:left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-accent-purple/50 to-transparent transform md:-translate-x-1/2" />
 
-                <div className="space-y-12">
+                <div className="space-y-6 sm:space-y-8 md:space-y-12">
                     {courses.map((semester, i) => (
                         <motion.div
                             key={semester.term}
@@ -50,29 +50,29 @@ const Courses = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ margin: "-100px" }}
                             transition={{ delay: i * 0.05 }}
-                            className={`flex flex-col md:flex-row gap-8 items-stretch ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                            className={`flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-stretch ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                         >
                             {/* Card Side */}
-                            <div className="flex-1 w-full pl-12 md:pl-0">
-                                <div className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-6 rounded-2xl hover:bg-black/5 dark:hover:bg-white/10 h-full shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
-                                    <div className="flex items-center gap-3 mb-4 border-b border-border/50 dark:border-white/10 pb-4">
-                                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-purple/10 border border-accent-purple/20 text-accent-purple text-xs font-mono font-bold">
-                                            <Calendar size={12} />
+                            <div className="flex-1 w-full pl-10 sm:pl-14 md:pl-0">
+                                <div className="bg-card/40 dark:bg-white/5 backdrop-blur-md border border-accent-purple/50 p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl hover:bg-black/5 dark:hover:bg-white/10 h-full shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
+                                    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 border-b border-border/50 dark:border-white/10 pb-2 sm:pb-3 md:pb-4">
+                                        <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-accent-purple/10 border border-accent-purple/20 text-accent-purple text-[10px] sm:text-xs font-mono font-bold">
+                                            <Calendar size={10} className="sm:w-3 sm:h-3" />
                                             {semester.term}
                                         </span>
                                     </div>
-                                    <ul className="space-y-3">
+                                    <ul className="space-y-2 sm:space-y-3">
                                         {semester.items.map((item, idx) => (
                                             <li key={idx} className="group/item">
                                                 <a
                                                     href={item.link || '#'}
-                                                    className={`flex items-start gap-2 ${item.link ? 'hover:text-accent-purple transition-colors cursor-pointer' : 'text-muted-foreground cursor-default'}`}
+                                                    className={`flex items-start gap-1.5 sm:gap-2 ${item.link ? 'hover:text-accent-purple transition-colors cursor-pointer' : 'text-muted-foreground cursor-default'}`}
                                                     target={item.link ? "_blank" : undefined}
                                                     rel={item.link ? "noopener noreferrer" : undefined}
                                                 >
-                                                    <BookOpen size={16} className="mt-1 shrink-0 text-muted-foreground/70 group-hover/item:text-accent-purple transition-colors" />
-                                                    <span className="text-sm font-medium leading-relaxed">{item.name}</span>
-                                                    {item.link && <ExternalLink size={12} className="mt-1.5 opacity-0 group-hover/item:opacity-100 transition-opacity" />}
+                                                    <BookOpen size={14} className="mt-0.5 sm:mt-1 shrink-0 text-muted-foreground/70 group-hover/item:text-accent-purple transition-colors sm:w-4 sm:h-4" />
+                                                    <span className="text-xs sm:text-sm font-medium leading-relaxed">{item.name}</span>
+                                                    {item.link && <ExternalLink size={10} className="mt-1 sm:mt-1.5 opacity-0 group-hover/item:opacity-100 transition-opacity sm:w-3 sm:h-3" />}
                                                 </a>
                                             </li>
                                         ))}
@@ -81,8 +81,8 @@ const Courses = () => {
                             </div>
 
                             {/* Center Dot */}
-                            <div className="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-background border-4 border-accent-purple transform -translate-x-1/2 z-10 shadow-[0_0_10px_rgba(147,114,255,0.5)] flex items-center justify-center">
-                                <div className="w-1.5 h-1.5 bg-foreground dark:bg-white rounded-full opacity-50" />
+                            <div className="absolute left-4 sm:left-6 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-background border-2 sm:border-4 border-accent-purple transform -translate-x-1/2 z-10 shadow-[0_0_10px_rgba(147,114,255,0.5)] flex items-center justify-center">
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-foreground dark:bg-white rounded-full opacity-50" />
                             </div>
 
                             {/* Empty Side */}

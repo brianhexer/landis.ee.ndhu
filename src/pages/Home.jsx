@@ -105,19 +105,19 @@ const Home = () => {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden px-4">
-                <div className="container mx-auto px-6 relative z-10 text-center">
+            <section className="relative min-h-[70vh] sm:min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden px-2 sm:px-4">
+                <div className="container mx-auto px-2 sm:px-6 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-accent-purple/10 border border-accent-purple/20 rounded-full mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-accent-purple/10 border border-accent-purple/20 rounded-full mb-4 sm:mb-8 backdrop-blur-sm"
                     >
-                        <Sparkles className="w-4 h-4 text-accent-purple animate-spin-slow" />
-                        <span className="text-sm text-accent-purple uppercase tracking-widest">Research Lab</span>
+                        <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-accent-purple animate-spin-slow" />
+                        <span className="text-xs sm:text-sm text-accent-purple uppercase tracking-widest">Research Lab</span>
                     </motion.div>
 
-                    <div className={`text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight uppercase min-h-[140px] sm:min-h-[160px] md:min-h-[200px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
+                    <div className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 sm:mb-6 leading-none uppercase min-h-[100px] sm:min-h-[120px] md:min-h-[160px] lg:min-h-[200px] ${hideCursor ? '[&_.Typewriter__cursor]:opacity-0' : ''}`}>
                         <Typewriter
                             options={{
                                 autoStart: true,
@@ -140,7 +140,7 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-2 max-w-7xl mx-auto leading-relaxed"
+                            className="block text-accent-purple text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light tracking-wide px-1 max-w-7xl mx-auto leading-snug sm:leading-relaxed"
                         >
                             Laboratory for Advanced Networks & <br /> Distributed Intelligent Systems
                         </motion.span>
@@ -150,46 +150,46 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="text-base sm:text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto px-4"
+                        className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8 sm:mb-12 max-w-2xl mx-auto px-2 sm:px-4"
                     >
                         National Dong Hwa University (NDHU), Taiwan, R.O.C.
                     </motion.p>
                 </div>
             </section>
 
-            <div className="container mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 relative -mt-10 md:-mt-20 z-20">
+            <div className="container mx-auto px-2 sm:px-4 md:px-6 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-12 relative -mt-6 sm:-mt-10 md:-mt-20 z-20">
 
                 {/* Main Content Area */}
-                <div className="lg:col-span-2 space-y-8">
+                <div className="lg:col-span-2 space-y-4 sm:space-y-6 md:space-y-8">
 
                     {/* Welcome Card - Glassmorphism */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-6 md:p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                     >
-                        <h2 className="text-2xl md:text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-6">Welcome to LANDIS</h2>
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-3 sm:pb-4 mb-4 sm:mb-6">Welcome to LANDIS</h2>
                         <div className="prose prose-invert max-w-none">
                             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                                 Welcome to the Laboratory for Advanced Networks and Distributed Intelligent Systems (LANDIS). We are pioneering research in:
                             </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                            <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
                                 {['Network Science', 'Cloud Computing', 'Internet of Things', '5G/6G Networks'].map((item) => (
-                                    <div key={item} className="bg-accent-purple/10 p-4 rounded-lg text-center border border-accent-purple/20 text-foreground dark:text-white font-bold">
+                                    <div key={item} className="bg-accent-purple/10 p-2 sm:p-3 md:p-4 rounded-lg text-center border border-accent-purple/20 text-foreground dark:text-white font-bold text-xs sm:text-sm md:text-base">
                                         {item}
                                     </div>
                                 ))}
                             </div>
 
-                            <h3 className="text-xl font-bold mb-4 text-foreground/90">Focus Areas:</h3>
+                            <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4 text-foreground/90">Focus Areas:</h3>
                             <ul className="space-y-3">
                                 {[
                                     'Advanced Network Technologies (WSN, IoT, 4G/5G, MANET/VANET)',
                                     'Distributed Systems (Ubiquitous Computing, Data Aggregation)',
                                     'Algorithm Design & Analysis (Distributed, Randomized, Optimization)'
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-muted-foreground">
+                                    <li key={i} className="flex items-start gap-2 text-muted-foreground text-sm sm:text-base">
                                         <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent-purple shrink-0" />
                                         {item}
                                     </li>
@@ -203,10 +203,10 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                        className="bg-card/40 dark:bg-white/5 backdrop-blur-xl border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                     >
-                        <h2 className="text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-4 mb-8">Lab News</h2>
-                        <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple border-b border-border dark:border-gray-800 pb-3 sm:pb-4 mb-4 sm:mb-6 md:mb-8">Lab News</h2>
+                        <div className="space-y-4 sm:space-y-6 max-h-[400px] sm:max-h-[500px] md:max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
                             <div className="group relative pl-8 pb-8 border-l-2 border-border dark:border-white/10 last:border-0 last:pb-0">
                                 <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-accent-purple border-2 border-background shadow-[0_0_8px_rgba(147,114,255,0.8)] group-hover:scale-125 transition-transform" />
                                 <span className="text-sm text-accent-purple font-mono mb-2 block">November 21th, 2014</span>
@@ -250,15 +250,15 @@ const Home = () => {
                 </div>
 
                 {/* Sidebar */}
-                <div className="space-y-8">
+                <div className="space-y-4 sm:space-y-6 md:space-y-8">
                     {/* Rotating Quotes */}
-                    <div className="bg-card/40 dark:bg-card border border-accent-purple/50 p-8 rounded-2xl relative overflow-hidden group shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
+                    <div className="bg-card/40 dark:bg-card border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl relative overflow-hidden group shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
                         <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <Quote size={60} />
                         </div>
-                        <h3 className="text-lg font-bold uppercase mb-6 text-accent-purple tracking-wider">Daily Inspiration</h3>
+                        <h3 className="text-base sm:text-lg font-bold uppercase mb-4 sm:mb-6 text-accent-purple tracking-wider">Daily Inspiration</h3>
 
-                        <div className="h-40 relative">
+                        <div className="h-32 sm:h-36 md:h-40 relative">
                             <AnimatePresence mode='wait'>
                                 <motion.div
                                     key={quoteIndex}
@@ -268,7 +268,7 @@ const Home = () => {
                                     transition={{ duration: 0.5 }}
                                     className="absolute inset-0"
                                 >
-                                    <p className="text-xl text-muted-foreground italic mb-4 font-light leading-relaxed">
+                                    <p className="text-base sm:text-lg md:text-xl text-muted-foreground italic mb-3 sm:mb-4 font-light leading-relaxed">
                                         "{quotes[quoteIndex].text}"
                                     </p>
                                     <div className="flex items-center gap-2">
@@ -291,8 +291,8 @@ const Home = () => {
                     </div>
 
                     {/* Archives - Styled */}
-                    <div className="bg-card/40 dark:bg-card border border-accent-purple/50 p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
-                        <h3 className="text-lg font-bold uppercase mb-6 text-accent-purple tracking-wider">Quick Links</h3>
+                    <div className="bg-card/40 dark:bg-card border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
+                        <h3 className="text-base sm:text-lg font-bold uppercase mb-4 sm:mb-6 text-accent-purple tracking-wider">Quick Links</h3>
                         <div className="flex flex-col gap-2">
                             {['Recruitment: I WANT YOU', 'Big Data Systems', 'Industry Cooperation'].map((item) => (
                                 <a key={item} href="#" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group">
@@ -304,8 +304,8 @@ const Home = () => {
                     </div>
 
                     {/* Contact - Compact */}
-                    <div className="bg-gradient-to-br from-accent-purple/20 to-transparent border border-accent-purple/50 p-8 rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
-                        <h3 className="text-lg font-bold uppercase mb-6 text-foreground tracking-wider">Contact</h3>
+                    <div className="bg-gradient-to-br from-accent-purple/20 to-transparent border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500">
+                        <h3 className="text-base sm:text-lg font-bold uppercase mb-4 sm:mb-6 text-foreground tracking-wider">Contact</h3>
                         <div className="space-y-4 text-sm">
                             <div className="flex items-center gap-3 text-muted-foreground">
                                 <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0">📧</span>

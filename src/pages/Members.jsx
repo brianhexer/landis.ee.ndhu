@@ -53,64 +53,64 @@ const Members = () => {
     }
 
     return (
-        <div className="container mx-auto px-6 py-24">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 py-16 sm:py-20 md:py-24">
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl font-bold uppercase mb-16 text-center text-foreground dark:text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase mb-8 sm:mb-12 md:mb-16 text-center text-foreground dark:text-white"
             >
                 Members
             </motion.h1>
 
             {/* Photos Section - Masonry Grid Style */}
-            <div className="mb-32">
-                <h2 className="text-3xl font-bold text-accent-purple mb-12 border-b border-border dark:border-gray-800 pb-4">Lab Life</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mb-16 sm:mb-24 md:mb-32">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-accent-purple mb-6 sm:mb-8 md:mb-12 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">Lab Life</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {[
-                        { src: members3, caption: "River trekking in Mukumugi, 2013", span: "md:col-span-2 md:row-span-2" },
+                        { src: members3, caption: "River trekking in Mukumugi, 2013", span: "sm:col-span-2 sm:row-span-2" },
                         { src: members1, caption: "LANDIS Lab, 2012", span: "" },
                         { src: members2, caption: "Farglory Hotel, 2012", span: "" },
                         { src: members5, caption: "Moonhouse, 2014", span: "" },
-                        { src: members6, caption: "LANDIS Lab, 2014", span: "md:col-span-2" },
+                        { src: members6, caption: "LANDIS Lab, 2014", span: "sm:col-span-2" },
                         { src: members4, caption: "Mukumugi, 2013", span: "" }
                     ].map((img, i) => (
-                        <Tilt key={i} options={defaultTiltOptions} className={`relative group rounded-2xl overflow-hidden shadow-2xl ${img.span}`}>
+                        <Tilt key={i} options={defaultTiltOptions} className={`relative group rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl ${img.span}`}>
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: i * 0.1 }}
                                 className="h-full w-full"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6">
-                                    <p className="text-white font-bold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{img.caption}</p>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-4 sm:p-6">
+                                    <p className="text-white font-bold text-sm sm:text-base md:text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{img.caption}</p>
                                 </div>
-                                <img src={img.src} alt={img.caption} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" style={{ minHeight: '300px' }} />
+                                <img src={img.src} alt={img.caption} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" style={{ minHeight: '200px' }} />
                             </motion.div>
                         </Tilt>
                     ))}
                 </div>
             </div>
 
-            <div className="space-y-24">
+            <div className="space-y-12 sm:space-y-16 md:space-y-24">
                 <section>
-                    <div className="flex items-end gap-4 mb-8 border-b border-border dark:border-gray-800 pb-4">
-                        <h2 className="text-4xl font-bold text-accent-purple">Ph.D. Program</h2>
-                        <span className="text-muted-foreground mb-1">Current Researchers</span>
+                    <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-4 mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent-purple">Ph.D. Program</h2>
+                        <span className="text-sm sm:text-base text-muted-foreground sm:mb-1">Current Researchers</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                         {phds.map((p, i) => (
                             <Tilt key={i} options={{ ...defaultTiltOptions, max: 10, scale: 1.01 }}>
                                 <motion.div
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="h-full bg-card/40 dark:bg-card border border-accent-purple/50 p-8 rounded-2xl group relative overflow-hidden shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                    className="h-full bg-card/40 dark:bg-card border border-accent-purple/50 p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl group relative overflow-hidden shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                                 >
-                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                        <span className="text-8xl font-bold text-foreground dark:text-white">PHD</span>
+                                    <div className="absolute top-0 right-0 p-2 sm:p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                        <span className="text-4xl sm:text-6xl md:text-8xl font-bold text-foreground dark:text-white">PHD</span>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-3 text-foreground dark:text-white group-hover:text-accent-purple transition-colors">{p.name}</h3>
-                                    <p className="text-muted-foreground leading-relaxed"><span className="text-accent-purple font-mono text-sm block mb-1">FOCUS AREA</span> {p.area}</p>
+                                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 text-foreground dark:text-white group-hover:text-accent-purple transition-colors">{p.name}</h3>
+                                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base"><span className="text-accent-purple font-mono text-xs sm:text-sm block mb-1">FOCUS AREA</span> {p.area}</p>
                                 </motion.div>
                             </Tilt>
                         ))}
@@ -118,50 +118,50 @@ const Members = () => {
                 </section>
 
                 <section>
-                    <div className="flex items-end gap-4 mb-8 border-b border-border dark:border-gray-800 pb-4">
-                        <h2 className="text-4xl font-bold text-accent-purple">Master Program</h2>
-                        <span className="text-muted-foreground mb-1">Graduate Students</span>
+                    <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-4 mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent-purple">Master Program</h2>
+                        <span className="text-sm sm:text-base text-muted-foreground sm:mb-1">Graduate Students</span>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                         {masters.map((p, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-white/5 backdrop-blur-sm border border-accent-purple/50 p-6 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
+                                className="bg-card/40 dark:bg-white/5 backdrop-blur-sm border border-accent-purple/50 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl hover:bg-black/5 dark:hover:bg-white/10 shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] transition-all duration-500"
                             >
-                                <h3 className="text-xl font-bold mb-2 text-foreground dark:text-white">{p.name}</h3>
-                                <p className="text-muted-foreground text-sm">{p.area}</p>
+                                <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-foreground dark:text-white">{p.name}</h3>
+                                <p className="text-muted-foreground text-xs sm:text-sm">{p.area}</p>
                             </motion.div>
                         ))}
                     </div>
                 </section>
 
                 <section>
-                    <div className="flex items-end gap-4 mb-8 border-b border-border dark:border-gray-800 pb-4">
-                        <h2 className="text-4xl font-bold text-accent-purple">Alumni</h2>
-                        <span className="text-muted-foreground mb-1">Hall of Fame</span>
+                    <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-4 mb-4 sm:mb-6 md:mb-8 border-b border-border dark:border-gray-800 pb-3 sm:pb-4">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent-purple">Alumni</h2>
+                        <span className="text-sm sm:text-base text-muted-foreground sm:mb-1">Hall of Fame</span>
                     </div>
-                    <div className="grid grid-cols-1 gap-4">
+                    <div className="grid grid-cols-1 gap-3 sm:gap-4">
                         {alumni.map((p, i) => (
                             <motion.div
                                 key={i}
                                 initial={{ opacity: 0, x: -10 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.05 }}
-                                className="bg-card/40 dark:bg-card border border-accent-purple/50 p-6 rounded-xl transition-all group flex flex-col md:flex-row gap-6 items-start shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] duration-500"
+                                className="bg-card/40 dark:bg-card border border-accent-purple/50 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl transition-all group flex flex-col gap-3 sm:gap-4 md:flex-row md:gap-6 items-start shadow-[0_0_15px_rgba(147,114,255,0.15)] hover:shadow-[0_0_25px_rgba(147,114,255,0.3)] duration-500"
                             >
                                 <div className="flex-1">
-                                    <h3 className="text-xl font-bold mb-2 text-foreground dark:text-white group-hover:text-accent-purple transition-colors">{p.name}</h3>
-                                    <div className="pl-4 border-l-2 border-accent-purple/30">
-                                        <p className="text-muted-foreground text-sm mb-1 leading-relaxed italic">"{p.thesis}"</p>
+                                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2 text-foreground dark:text-white group-hover:text-accent-purple transition-colors">{p.name}</h3>
+                                    <div className="pl-3 sm:pl-4 border-l-2 border-accent-purple/30">
+                                        <p className="text-muted-foreground text-xs sm:text-sm mb-1 leading-relaxed italic">"{p.thesis}"</p>
                                     </div>
                                 </div>
                                 {p.job && (
-                                    <div className="md:w-1/3 bg-accent-purple/5 p-4 rounded-lg border border-accent-purple/10">
-                                        <span className="text-xs font-bold text-accent-purple uppercase tracking-wider block mb-1">Current Position</span>
-                                        <p className="text-sm text-muted-foreground">{p.job}</p>
+                                    <div className="w-full md:w-1/3 bg-accent-purple/5 p-3 sm:p-4 rounded-lg border border-accent-purple/10">
+                                        <span className="text-[10px] sm:text-xs font-bold text-accent-purple uppercase tracking-wider block mb-1">Current Position</span>
+                                        <p className="text-xs sm:text-sm text-muted-foreground">{p.job}</p>
                                     </div>
                                 )}
                             </motion.div>

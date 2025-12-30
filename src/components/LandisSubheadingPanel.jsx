@@ -9,9 +9,9 @@ const LandisSubheadingPanel = () => {
     const y = useTransform(scrollYProgress, [0.9, 1], [20, 0]);
 
     return (
-        <div className="fixed bottom-8 left-0 w-full z-[-1] flex items-center justify-center pointer-events-none overflow-hidden pb-4">
-            <motion.div style={{ opacity, y }} className="w-full text-center">
-                <span className="text-[10px] md:text-[0.95vw] font-light tracking-[0.75em] text-white/40 uppercase px-4 w-full block leading-relaxed">
+        <div className="fixed bottom-1 sm:bottom-2 left-0 w-full z-[-1] flex items-center justify-center pointer-events-none overflow-hidden">
+            <motion.div style={{ opacity, y }} className="w-full px-[2vw]">
+                <span className="text-[8px] sm:text-[10px] md:text-[0.9vw] font-light tracking-[0.3em] sm:tracking-[0.5em] md:tracking-[0.7em] text-white/50 uppercase w-full block text-center whitespace-nowrap">
                     Laboratory for Advanced Networks & Distributed Intelligent Systems
                 </span>
             </motion.div>

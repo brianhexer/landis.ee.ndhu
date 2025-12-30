@@ -45,11 +45,11 @@ const Header = () => {
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
                 scrolled 
-                    ? 'bg-[#0a0b0d]/95 backdrop-blur-md py-2 border-b border-[#ffffff1f] shadow-lg' 
-                    : 'bg-[#0a0b0d]/80 backdrop-blur-sm py-3 lg:bg-transparent lg:backdrop-blur-none'
+                    ? 'bg-[#0a0b0d]/95 backdrop-blur-md py-1.5 md:py-2 border-b border-[#ffffff1f] shadow-lg' 
+                    : 'bg-[#0a0b0d]/80 backdrop-blur-sm py-2 md:py-3 lg:bg-transparent lg:backdrop-blur-none'
             )}
         >
-            <div className="container mx-auto px-6 flex items-center justify-between">
+            <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link to="/" className="z-50 block">
                     <AnimatePresence mode="wait">
                         {!scrolled || atBottom ? (
@@ -61,7 +61,7 @@ const Header = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2 }}
-                                className="h-14 w-auto object-contain"
+                                className="h-10 md:h-14 w-auto object-contain"
                                 style={{ filter: "drop-shadow(0 0 2px #9372FF) drop-shadow(0 0 5px rgba(147,114,255,0.5))" }}
                             />
                         ) : (
@@ -71,7 +71,7 @@ const Header = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.2 }}
-                                className="text-3xl font-black tracking-tighter text-foreground block"
+                                className="text-2xl md:text-3xl font-black tracking-tighter text-foreground block"
                             >
                                 LANDIS
                             </motion.span>
@@ -122,7 +122,7 @@ const Header = () => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: '100%' }}
                             transition={{ type: 'tween', duration: 0.3 }}
-                            className="fixed inset-0 bg-background backdrop-blur-xl flex flex-col items-center justify-center gap-6 lg:hidden z-[100] pt-20 pb-10 px-6"
+                            className="fixed inset-0 bg-[#0a0b0d] flex flex-col items-center justify-center gap-6 lg:hidden z-[100] pt-20 pb-10 px-6"
                         >
                             {navItems.map((item, index) => (
                                 <motion.div
@@ -134,7 +134,7 @@ const Header = () => {
                                     <Link
                                         to={item.path}
                                         className={cn(
-                                            "text-2xl font-bold uppercase tracking-widest transition-colors",
+                                            "text-xl md:text-2xl font-bold uppercase tracking-widest transition-colors",
                                             location.pathname === item.path 
                                                 ? "text-accent-purple" 
                                                 : "text-foreground hover:text-accent-purple"

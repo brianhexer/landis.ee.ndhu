@@ -24,7 +24,7 @@ const Layout = () => {
 
                 {/* Main: z-10, Opaque(ish), with margin for reveal */}
                 <main
-                    className="flex-grow pt-20 sm:pt-24 bg-transparent relative z-10"
+                    className="flex-grow pt-16 sm:pt-20 md:pt-24 bg-transparent relative z-10"
                 >
                     <Outlet />
                 </main>

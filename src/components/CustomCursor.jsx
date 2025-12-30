@@ -1,106 +1,152 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
-import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
-// Mobile Touch Trace Effect
+// Mobile Touch Trace Effect - Neon Line Trail (Canvas-based for performance)
 const MobileTouchTrace = () => {
-    const [touches, setTouches] = useState([]);
-    const touchIdCounter = useRef(0);
+    const canvasRef = useRef(null);
+    const pointsRef = useRef([]);
+    const animationRef = useRef(null);
 
     useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+
+        const resize = () => {
+            canvas.width = window.innerWidth * dpr;
+            canvas.height = window.innerHeight * dpr;
+            ctx.scale(dpr, dpr);
+        };
+        resize();
+        window.addEventListener('resize', resize);
+
         const handleTouchStart = (e) => {
-            const newTouches = Array.from(e.touches).map(touch => ({
-                id: touchIdCounter.current++,
-                x: touch.clientX,
-                y: touch.clientY,
-                timestamp: Date.now()
-            }));
-            setTouches(prev => [...prev, ...newTouches].slice(-15)); // Keep max 15 particles
+            const touch = e.touches[0];
+            pointsRef.current = [{ x: touch.clientX, y: touch.clientY, age: 0 }];
         };
 
         const handleTouchMove = (e) => {
-            const newTouches = Array.from(e.touches).map(touch => ({
-                id: touchIdCounter.current++,
-                x: touch.clientX,
-                y: touch.clientY,
-                timestamp: Date.now()
-            }));
-            setTouches(prev => [...prev, ...newTouches].slice(-15));
+            const touch = e.touches[0];
+            const lastPoint = pointsRef.current[pointsRef.current.length - 1];
+
+            // Only add point if moved enough distance (optimization)
+            if (lastPoint) {
+                const dx = touch.clientX - lastPoint.x;
+                const dy = touch.clientY - lastPoint.y;
+                if (dx * dx + dy * dy < 16) return; // Min 4px movement
+            }
+
+            pointsRef.current.push({ x: touch.clientX, y: touch.clientY, age: 0 });
+            // Keep max 30 points for smooth trail
+            if (pointsRef.current.length > 30) {
+                pointsRef.current.shift();
+            }
         };
 
         const handleTouchEnd = () => {
-            // Clear old particles after touch ends
-            setTimeout(() => {
-                setTouches(prev => prev.filter(t => Date.now() - t.timestamp < 500));
-            }, 100);
+            // Points will fade out naturally
         };
 
-        // Cleanup old particles periodically
-        const cleanupInterval = setInterval(() => {
-            setTouches(prev => prev.filter(t => Date.now() - t.timestamp < 600));
-        }, 100);
+        const draw = () => {
+            ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+
+            const points = pointsRef.current;
+
+            // Age all points and remove old ones
+            for (let i = points.length - 1; i >= 0; i--) {
+                points[i].age += 0.02;
+                if (points[i].age > 1) {
+                    points.splice(i, 1);
+                }
+            }
+
+            if (points.length < 2) {
+                animationRef.current = requestAnimationFrame(draw);
+                return;
+            }
+
+            // Draw neon line trail
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Draw multiple layers for neon glow effect
+            const layers = [
+                { width: 12, alpha: 0.1, blur: 15 },
+                { width: 8, alpha: 0.3, blur: 8 },
+                { width: 4, alpha: 0.6, blur: 4 },
+                { width: 2, alpha: 1, blur: 0 }
+            ];
+
+            layers.forEach(layer => {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(147, 114, 255, ${layer.alpha})`;
+                ctx.lineWidth = layer.width;
+                ctx.filter = layer.blur > 0 ? `blur(${layer.blur}px)` : 'none';
+
+                for (let i = 0; i < points.length; i++) {
+                    const point = points[i];
+                    const opacity = 1 - point.age;
+
+                    if (i === 0) {
+                        ctx.moveTo(point.x, point.y);
+                    } else {
+                        // Smooth curve using quadratic bezier
+                        const prev = points[i - 1];
+                        const midX = (prev.x + point.x) / 2;
+                        const midY = (prev.y + point.y) / 2;
+                        ctx.quadraticCurveTo(prev.x, prev.y, midX, midY);
+                    }
+                }
+                ctx.stroke();
+                ctx.filter = 'none';
+            });
+
+            // Draw bright tip at the last point
+            if (points.length > 0) {
+                const lastPoint = points[points.length - 1];
+                const tipOpacity = 1 - lastPoint.age;
+
+                // Outer glow
+                ctx.beginPath();
+                ctx.arc(lastPoint.x, lastPoint.y, 8, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(147, 114, 255, ${0.3 * tipOpacity})`;
+                ctx.filter = 'blur(6px)';
+                ctx.fill();
+                ctx.filter = 'none';
+
+                // Inner bright dot
+                ctx.beginPath();
+                ctx.arc(lastPoint.x, lastPoint.y, 4, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(200, 180, 255, ${tipOpacity})`;
+                ctx.fill();
+            }
+
+            animationRef.current = requestAnimationFrame(draw);
+        };
 
         window.addEventListener('touchstart', handleTouchStart, { passive: true });
         window.addEventListener('touchmove', handleTouchMove, { passive: true });
         window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
+        animationRef.current = requestAnimationFrame(draw);
+
         return () => {
+            window.removeEventListener('resize', resize);
             window.removeEventListener('touchstart', handleTouchStart);
             window.removeEventListener('touchmove', handleTouchMove);
             window.removeEventListener('touchend', handleTouchEnd);
-            clearInterval(cleanupInterval);
+            if (animationRef.current) cancelAnimationFrame(animationRef.current);
         };
     }, []);
 
     return (
-        <div className="md:hidden fixed inset-0 pointer-events-none z-[99998] overflow-hidden">
-            <AnimatePresence>
-                {touches.map((touch) => (
-                    <motion.div
-                        key={touch.id}
-                        initial={{
-                            opacity: 0.9,
-                            scale: 1,
-                            x: touch.x - 15,
-                            y: touch.y - 15
-                        }}
-                        animate={{
-                            opacity: 0,
-                            scale: 2.5
-                        }}
-                        exit={{ opacity: 0 }}
-                        transition={{
-                            duration: 0.6,
-                            ease: "easeOut"
-                        }}
-                        className="absolute w-[30px] h-[30px] rounded-full pointer-events-none"
-                        style={{
-                            background: 'radial-gradient(circle, rgba(147,114,255,0.8) 0%, rgba(147,114,255,0.4) 40%, transparent 70%)',
-                            boxShadow: '0 0 20px rgba(147,114,255,0.8), 0 0 40px rgba(147,114,255,0.4), 0 0 60px rgba(147,114,255,0.2)',
-                            filter: 'blur(1px)'
-                        }}
-                    />
-                ))}
-            </AnimatePresence>
-            {/* Central touch indicator */}
-            <AnimatePresence>
-                {touches.length > 0 && (
-                    <motion.div
-                        key="center-glow"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.5 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute w-[16px] h-[16px] rounded-full pointer-events-none"
-                        style={{
-                            left: touches[touches.length - 1]?.x - 8,
-                            top: touches[touches.length - 1]?.y - 8,
-                            background: 'rgba(147,114,255,1)',
-                            boxShadow: '0 0 15px rgba(147,114,255,1), 0 0 30px rgba(147,114,255,0.8)',
-                        }}
-                    />
-                )}
-            </AnimatePresence>
-        </div>
+        <canvas
+            ref={canvasRef}
+            className="md:hidden fixed inset-0 pointer-events-none z-[99998]"
+            style={{ width: '100%', height: '100%' }}
+        />
     );
 };
 

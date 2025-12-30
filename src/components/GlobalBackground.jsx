@@ -50,7 +50,29 @@ const InteractivePixelGrid = () => {
         const handleMouseMove = (e) => {
             mouseRef.current = { x: e.clientX, y: e.clientY };
         };
+
+        // Touch handlers for mobile - same effect as mouse
+        const handleTouchStart = (e) => {
+            if (e.touches.length > 0) {
+                mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+        };
+
+        const handleTouchMove = (e) => {
+            if (e.touches.length > 0) {
+                mouseRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+        };
+
+        const handleTouchEnd = () => {
+            // Move the interaction point off-screen when touch ends
+            mouseRef.current = { x: -1000, y: -1000 };
+        };
+
         window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('touchstart', handleTouchStart, { passive: true });
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
+        window.addEventListener('touchend', handleTouchEnd, { passive: true });
 
         const resize = () => {
             // Handle DPI
@@ -79,7 +101,7 @@ const InteractivePixelGrid = () => {
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 // Interaction Radius - scale with screen size
-                const radius = window.innerWidth < 768 ? 120 : 180;
+                const radius = window.innerWidth < 768 ? 100 : 180;
                 let activeFactor = 0;
 
                 if (dist < radius) {
@@ -135,6 +157,9 @@ const InteractivePixelGrid = () => {
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
             window.removeEventListener('resize', resize);
             cancelAnimationFrame(animationFrameId);
             observer.disconnect();

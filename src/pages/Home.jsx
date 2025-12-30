@@ -79,20 +79,20 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="flex flex-col gap-8 sm:gap-12 md:gap-16 pb-8 sm:pb-12 md:pb-16 relative min-h-screen bg-transparent transition-colors duration-300">
+        <div className="flex flex-col gap-8 sm:gap-12 md:gap-16 pb-8 sm:pb-12 md:pb-16 relative min-h-screen bg-transparent transition-colors duration-300 overflow-x-hidden">
             {/* Cyberpunk AI Fixed Background - REPLACED BY GLOBAL BACKGROUND */}
-            <div className="absolute inset-0 pointer-events-none -z-10">
+            <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
                 {/* Active Electric Arcs (Kept Local) */}
                 <ElectricArcs />
 
-                {/* Dynamic Cyber Orbs (Kept for Home flair) */}
+                {/* Dynamic Cyber Orbs (Kept for Home flair) - Hidden on very small screens */}
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
                         opacity: [0.2, 0.4, 0.2]
                     }}
                     transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-accent-purple/10 blur-[120px] rounded-full mix-blend-screen"
+                    className="hidden sm:block absolute top-1/4 right-0 w-[300px] md:w-[400px] lg:w-[600px] h-[300px] md:h-[400px] lg:h-[600px] bg-accent-purple/10 blur-[120px] rounded-full mix-blend-screen"
                 />
                 <motion.div
                     animate={{
@@ -100,7 +100,7 @@ const Home = () => {
                         opacity: [0.1, 0.3, 0.1]
                     }}
                     transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-cyan-500/10 blur-[100px] rounded-full mix-blend-screen"
+                    className="hidden sm:block absolute bottom-0 left-0 w-[250px] md:w-[350px] lg:w-[500px] h-[250px] md:h-[350px] lg:h-[500px] bg-cyan-500/10 blur-[100px] rounded-full mix-blend-screen"
                 />
             </div>
 

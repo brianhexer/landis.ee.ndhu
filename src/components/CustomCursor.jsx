@@ -28,7 +28,7 @@ const CustomCursor = () => {
                 translateX: cursorXSpring,
                 translateY: cursorYSpring,
             }}
-            className="fixed top-0 left-0 w-[10px] h-[10px] bg-[#9372FF] rounded-full pointer-events-none z-[9999] mix-blend-difference"
+            className="hidden md:block fixed top-0 left-0 w-[10px] h-[10px] bg-[#9372FF] rounded-full pointer-events-none z-[9999] mix-blend-difference"
         />
     );
 };

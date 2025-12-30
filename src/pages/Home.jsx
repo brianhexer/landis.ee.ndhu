@@ -139,7 +139,7 @@ const Home = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="block text-accent-purple text-lg sm:text-xl md:text-3xl lg:text-5xl mt-4 font-light tracking-wide px-4"
+                            className="block text-accent-purple text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl mt-4 font-light tracking-wide px-4 max-w-4xl mx-auto leading-relaxed"
                         >
                             Laboratory for Advanced Networks & Distributed Intelligent Systems
                         </motion.span>

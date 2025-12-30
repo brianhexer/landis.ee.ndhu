@@ -5,7 +5,7 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: '/landis/',
+    base: '/landis.ee.ndhu/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),

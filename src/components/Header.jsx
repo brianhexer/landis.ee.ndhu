@@ -103,7 +103,7 @@ const Header = () => {
                 </nav>
 
                 {/* Mobile Menu Actions */}
-                <div className="lg:hidden flex items-center gap-3 z-50">
+                <div className="lg:hidden flex items-center gap-3 z-[110]">
                     <ThemeToggle />
                     <button
                         className="text-foreground p-2 hover:text-accent-purple transition-colors touch-manipulation active:scale-95"
@@ -122,7 +122,7 @@ const Header = () => {
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0, x: '100%' }}
                             transition={{ type: 'tween', duration: 0.3 }}
-                            className="fixed inset-0 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center gap-6 lg:hidden z-40 pt-20 pb-10 px-6"
+                            className="fixed inset-0 bg-background backdrop-blur-xl flex flex-col items-center justify-center gap-6 lg:hidden z-[100] pt-20 pb-10 px-6"
                         >
                             {navItems.map((item, index) => (
                                 <motion.div

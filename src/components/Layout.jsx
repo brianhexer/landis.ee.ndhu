@@ -18,7 +18,7 @@ const Layout = () => {
             <CustomCursor />
             <div className="min-h-screen flex flex-col font-sans relative">
                 {/* Header: z-60 to sit above global effects */}
-                <div className="relative z-[60]">
+                <div className="relative z-[70]">
                     <Header />
                 </div>
 
